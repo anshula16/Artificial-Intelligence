@@ -81,8 +81,13 @@ class EightQueens(kivy.app.App):
 
         self.clearBoard()
 
-        population_size = int(self.population_size.text)
-
+        try:
+            population_size = int(self.population_size.text)
+            if population_size < 2:
+                population_size = 100
+        except:     # when the text is not an integer.
+            population_size = 100
+            
         population = ga.generatePopulation(population_size)
 
         iteration = 0
