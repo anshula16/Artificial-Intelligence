@@ -6,8 +6,7 @@ import kivy.uix.textinput
 import kivy.uix.label
 import numpy as np
 from kivy.config import Config
-import nQueensBoard as qb
-
+import GeneticAlgorithm as ga
 
 class EightQueens(kivy.app.App):
 
@@ -84,15 +83,15 @@ class EightQueens(kivy.app.App):
 
         population_size = int(self.population_size.text)
 
-        population = qb.generatePopulation(population_size)
+        population = ga.generatePopulation(population_size)
 
         iteration = 0
-        while not qb.stop(population, iteration):
+        while not ga.stop(population, iteration):
 
             # keep iterating till you find the best position
             if iteration % 100 == 0:
                 print("  " * 10 ,"Executing Genetic  generation : ", iteration)
-            population = qb.geneticAlgorithm(population)
+            population = ga.geneticAlgorithm(population)
             iteration +=1 
         
         flag = False
@@ -100,7 +99,7 @@ class EightQueens(kivy.app.App):
         for each in population:
             if not flag:
                 if each.fitness == 28:
-                    print(each.fitness, qb.calculateFitness(each.sequence_of_queens))
+                    print(each.fitness, ga.calculateFitness(each.sequence_of_queens))
                     for row_idx in range(0, 8):
                         col_idx = each.sequence_of_queens[row_idx]
                         self.all_widgets[row_idx, col_idx].text = "Q"
