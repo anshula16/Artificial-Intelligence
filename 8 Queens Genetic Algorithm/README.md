@@ -28,3 +28,8 @@ Run [EightQueens.py](EightQueens.py)
 >- #### [EightQueen.py](EightQueen.py) :
 >      > - [X] Defines GUI which contains an 8x8 board, button to start genetic algorithm, a text box to input population size, and the number of the iteration when the solution was found.
 >      > - [X] Clears board before starting the algorithm
+
+#### Submitted by : 
+>* Anshula Sachdeva
+>* Aditya Thakur
+
